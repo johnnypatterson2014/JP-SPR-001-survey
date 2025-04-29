@@ -8,8 +8,8 @@ import com.calamansi.demo.survey.service.SurveyService;
 @TestConfiguration
 public class SurveyTestConfig {
 
-	@Bean
-	public SurveyService exampleService() {
+    @Bean
+    SurveyService surveyService() {
 		return new SurveyService();
 	}
 }

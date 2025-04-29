@@ -15,16 +15,18 @@ import com.calamansi.demo.survey.SurveyApplication;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = SurveyApplication.class)
 @AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:application-integrationtest.properties")
-public class SurveyApplicationITMock {
+@TestPropertySource(locations = "classpath:application.properties")
+public class SurveyControllerTest {
 
 	@Autowired
 	private MockMvc mvc;
 
 	@Test
 	public void givenX_whenGetX_thenStatus200() throws Exception {
+		
+		mvc.perform(get("/api/survey/load-data"));
 
-		mvc.perform(get("/api/survey"))
-			.andExpectAll(status().isOk(), jsonPath("$.test").value("testing"));
+		mvc.perform(get("/api/survey?name=fred"))
+			.andExpectAll(status().isOk(), jsonPath("$.name").value("fred"));
 	}
 }
