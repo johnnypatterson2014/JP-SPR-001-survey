@@ -5,6 +5,7 @@ TO-DO:
  - add spring profile for test vs. integration-test
  - add servlet request/response listener
  - add jaccoco unit test coverage report generation
+ - add capability to get config values dynamically by listening to a github repo commit 
  - add code from InstallCert
  - add code from LoadTest and LoadTestApplication (uses cert when calling https backends)
  - add AEP code from: D:\CCI\2021\2021.08.21 - backup TD laptop\code\processor\txn
