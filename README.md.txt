@@ -110,5 +110,27 @@ TO-DO:
 		</pluginManagement>
 	</build>
  
- 
+
+
+mvn spring-boot:run -Dspring-boot.run.profiles=openai
+
+
+
+@SpringBootTest(properties = {
+    "spring.config.location=classpath:/global.properties,classpath:/app.properties"
+})
+public class TipsAppTest {
+
+    @Value("${property1}")
+    private String property1;
+    @Value("${property2}")
+    private String property2;
+    
+    @Test
+    void testProperties() {
+        Assertions.assertEquals("App specific property1", property1);
+        Assertions.assertEquals("Global property2", property2);
+    }
+}
+
  
